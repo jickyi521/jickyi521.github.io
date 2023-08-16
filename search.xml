@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>是否值得买彩票？-关于数学期望</title>
+      <link href="/about-math-expectation/"/>
+      <url>/about-math-expectation/</url>
+      
+        <content type="html"><![CDATA[<h2 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h2><blockquote><p>一张彩票2块钱，中奖的话是500万，中奖的概率是1&#x2F;5000000，是否值得下注？</p></blockquote><h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>这是数学中关于<code>数学期望</code> 的一个场景，<code>数学期望</code> 是一个随机变量在重复试验中的平均值。</p><blockquote><p>数学期望 &#x3D; Sum (每种可能的结果的值 × 对应的概率) 求和。</p></blockquote><p>在这个问题中，彩票中奖的可能有两种结果：中奖和不中奖。</p><p>可以计算中奖的值和概率，以及不中奖的值和概率。</p><p>中奖的值：500万</p><p>中奖的概率：1&#x2F;5000000</p><p>不中奖的值：-2元（购买彩票的费用）</p><p>不中奖的概率：1 - 1&#x2F;5000000（即没有中奖的概率）</p><p>根据公式可以进行计算：</p><p><code>数学期望</code> &#x3D; （中奖的值 × 中奖的概率） + （不中奖的值 × 不中奖的概率）</p><p>&#x3D; （5000000 × 1&#x2F;5000000） + [-2 × (1 - 1&#x2F;5000000)]</p><p>&#x3D; 1 + (-2 + 2&#x2F;5000000)</p><p>≈ -1</p><h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>因此，购买一张两块钱的彩票的<code>数学期望</code>约为-1元。</p><p>这意味着平均而言，每购买一张彩票会损失约1元。当然这种场景是选择不买。</p><p>中奖1000万是这个模式的平衡点。</p><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>注意，数学期望并不是确保一定会中奖的预测，而是在大量试验中的平均结果。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 生活 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数学 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>我最喜欢的一部电影</title>
+      <link href="/favorite-movie/"/>
+      <url>/favorite-movie/</url>
+      
+        <content type="html"><![CDATA[<p>看到群里有人谈论这个话题，我脑海里首先浮现的是  <code>「肖申克的救赎」</code>。</p><p>这部电影看了五六遍了，每次看都能有收获到不一样的体验。</p><p>说一个点的话：<code>希望</code>和<code>自由</code>。</p><blockquote><p>万物之中，希望至美。至美之物，永不凋零。</p></blockquote><p>一个人的意志品质，需要在低谷绝境中得到体现。</p><p>人生不如意十之八九，在挫折和逆境中才能体会到其中的苦楚，</p><p>又有什么好办法呢，只能拍拍身上的土，站起来重新出发。</p><p>就像现在中年失业在家的我，需体会这不易向他人道来的苦。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 生活 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 电影 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>你好，我来了</title>
+      <link href="/hello-blog/"/>
+      <url>/hello-blog/</url>
+      
+        <content type="html"><![CDATA[<p>在这个一亩三分地的blog下，记录一些看到的，经历的事情，以及想法。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 生活 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+  
+  
+</search>
