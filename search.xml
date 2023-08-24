@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>二叉树的最大路径和</title>
+      <link href="/max-path-sum-of-tree-node/"/>
+      <url>/max-path-sum-of-tree-node/</url>
+      
+        <content type="html"><![CDATA[<p>今天看到一个题，<a href="https://leetcode.cn/problems/binary-tree-maximum-path-sum/solutions/">二叉树求最大路径和</a>，leecode上还是hard模式，觉得这个题还是很有代表性。</p><p>复习下，看看怎么解。因为涉及到二叉树，一般都可分解为子问题去递归处理。</p><p><code>递归框架</code>：</p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="code">```c++</span></span><br><span class="line"><span class="code">void traverse(Node *node) &#123;</span></span><br><span class="line"><span class="code">//前序</span></span><br><span class="line"><span class="code">traverse(node-&gt;left);</span></span><br><span class="line"><span class="code">// 中序</span></span><br><span class="line"><span class="code">traverse(node-&gt;right);</span></span><br><span class="line"><span class="code">// 后序</span></span><br><span class="line"><span class="code">&#125;  </span></span><br><span class="line"><span class="code">```</span></span><br></pre></td></tr></table></figure><p>最重要的还是要理解这个<code>子问题</code>，怎么定义。</p><p>想象下自己在这颗二叉树进行遍历，先进入root节点， 接下来有很多选择，要选最大的子树边距去走。</p><p>子树有自己的左子树和右子树。这颗子树对于父亲节点而言，需要交付给父亲节点是：</p><p>包含自己(subNode-&gt;val)的最大边距是多少？</p><blockquote><p>子问题：subMaxPath &#x3D; subNode-&gt;val+max(subNode-&gt;left, subNode-&gt;right)</p></blockquote><p>整体的结构：</p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="code">```c++</span></span><br><span class="line"><span class="code">int res = INT_MIN;</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code">    //后序遍历可以先知道左节点和右节点</span></span><br><span class="line"><span class="code">    //这个递归函数返回的是当前这个节点最大的路径和</span></span><br><span class="line"><span class="code">    int def(TreeNode* root) &#123;</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code">        if(root == nullptr) return 0;</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code">        //左右两边节点最大值</span></span><br><span class="line"><span class="code">        int left = max(0, def(root-&gt;left));</span></span><br><span class="line"><span class="code">        int right = max(0, def(root-&gt;right));</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code">        //节点的最大路径取决于该节点的值，左右节点的最大路径</span></span><br><span class="line"><span class="code">        res = max(res, left+right+root-&gt;val);</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code">        //因为总要选一边所以是max，左右子树，选最大的那颗树</span></span><br><span class="line"><span class="code">        //想象下自己在游走这颗二叉树</span></span><br><span class="line"><span class="code">        return max(left, right)+root-&gt;val;</span></span><br><span class="line"><span class="code">    &#125;</span></span><br><span class="line"><span class="code">    </span></span><br><span class="line"><span class="code">    int maxPathSum(TreeNode* root) &#123;</span></span><br><span class="line"><span class="code">        def(root);</span></span><br><span class="line"><span class="code">        return res;</span></span><br><span class="line"><span class="code">    &#125;  </span></span><br><span class="line"><span class="code">```</span></span><br></pre></td></tr></table></figure><p>递归里面，需要想清楚子问题的定义，和return出口的定义。</p><p>整个框架结构就清晰了。</p><p>算法是软肋，之前面试，有好几个不错的机会，在算法这一轮挂了。<br>尤其是那些从硅谷回来的CTO，喜欢跟你聊算法，测验你的最基础的技术功底如何。<br>也是万万没想到，最后一轮还要搞算法，当时汗都快下来了。<br>有时间应该多补补这块，算是给脑子健健脑。</p><p>即使不干技术这行了，也是有意义的。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>市场跌跌不休，是否还定投？</title>
       <link href="/ding-tou-when-market-down/"/>
       <url>/ding-tou-when-market-down/</url>
