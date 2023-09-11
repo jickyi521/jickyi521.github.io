@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>为什么三体问题无解</title>
+      <link href="/three-body-and-stock-market-20230911/"/>
+      <url>/three-body-and-stock-market-20230911/</url>
+      
+        <content type="html"><![CDATA[<h2 id="三体问题"><a href="#三体问题" class="headerlink" title="三体问题"></a>三体问题</h2><p><code>「三体」</code>第一部<code>「地球往事」</code>中有大量情节是关于一款三体游戏的描写，就是试图找三体问题的解。</p><blockquote><p>建立一个数学模型，使得三体任何一个时间断面的初始值已知时，能够预测三体系统以后的所有运动状态</p></blockquote><p>如果解决了三体问题，就是三体世界的救世主。</p><p>“一个努力的，一个延续了近两百个文明的努力，为解决三体问题的努力，寻找太阳运行规律的努力“</p><p>结果呢？最后已经确切的证明，三体问题无解。</p><p>什么原因？</p><blockquote><p>因为三体是一个混沌系统，会将微小的扰动无限放大，其运行规律从数学上讲是不可预测的。</p></blockquote><p>从数学上讲是啥意思？具体怎么个说法，小说里是没找到对应的细节了。</p><p>不过，这几天看到了 <a href="https://www.bilibili.com/video/BV1e8411B7w7">投资是怎样赚钱的</a> 这个视频，里面介绍了股市是个混沌系统，找到了答案。</p><h2 id="Logistic映射"><a href="#Logistic映射" class="headerlink" title="Logistic映射"></a>Logistic映射</h2><p><a href="https://zh.wikipedia.org/zh-hans/%E9%80%BB%E8%BE%91%E6%96%AF%E8%B0%9B%E6%98%A0%E5%B0%84">逻辑斯谛映射 </a>出自于Robert May 1976年发表的 「复杂动力学的简单数学模型 」这篇论文。</p><p><img src="https://s2.loli.net/2023/09/11/UuLdIXt5ZMWlgzx.png" alt="LogisticMap_BifurcationDiagram.png"></p><p>公式：<code>Xn+1 = aXn(1-Xn)</code>  ，核心思想：</p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="code">```</span></span><br><span class="line"><span class="code">在混沌系统中，不管初始条件有多接近，在足够长的时间之后，它们的轨道还是会相互分开。</span></span><br><span class="line"><span class="code">这意味着，即使我们的模型很简单，所有的参数也都完全确定，长期预测也仍然是不可能的。</span></span><br><span class="line"><span class="code">```</span></span><br></pre></td></tr></table></figure><p>从数学上证明了混沌系统的不可预测性，三体问题是无解的。</p><h2 id="蝴蝶效应"><a href="#蝴蝶效应" class="headerlink" title="蝴蝶效应"></a>蝴蝶效应</h2><p>现代科技如此发达，可以准确把航天器按既定航线送到火星。为什么天气预报连两周后的天气都无法预测？</p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="code">```</span></span><br><span class="line"><span class="code">因为气象是一个混沌系统，本质上来说，气象学就是搜集大量的气象数据，</span></span><br><span class="line"><span class="code">比如说气温、气压、空气湿度、风速、风向等等这些数据，搜集回来以后，</span></span><br><span class="line"><span class="code">利用数学的方法去解一个方程，来求解未来天气到底是怎样的一件事情。</span></span><br><span class="line"><span class="code">```</span></span><br></pre></td></tr></table></figure><blockquote><p>一只蝴蝶在巴西轻拍翅膀，可以导致一个月后德克萨斯州的一场龙卷风。</p></blockquote><p>在一个动态的系统中，初始条件的细微变化，会导致不同事件发展的顺序，有显著差异，能带动整个系统长期且巨大的链式反应。</p><h2 id="股票市场"><a href="#股票市场" class="headerlink" title="股票市场"></a>股票市场</h2><p>股票市场加上了<code>人</code>在市场上的情绪和行为，那就是比气象更复杂的混沌系统了，无法被准确预测涨跌。</p><p>看看股神<code>巴菲特</code>对于预测市场的态度：</p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="code">```</span></span><br><span class="line"><span class="code">&quot;我从来没有见过能够预测市场走势的人。&quot;</span></span><br><span class="line"><span class="code">&quot;对于未来一年后的股市走势、利率以及经济动态，我们不做任何预测。我们过去不会、现在不会、将来也不会预测。&quot;</span></span><br><span class="line"><span class="code">&quot;我不知道股市明天、下周或者明年会如何波动。&quot;。</span></span><br><span class="line"><span class="code">```</span></span><br></pre></td></tr></table></figure><p><code>芒格</code>：</p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="code">```</span></span><br><span class="line"><span class="code">我们不预测市场何时崩盘，也不预测大的宏观趋势。我们没那个本事。</span></span><br><span class="line"><span class="code">我们根据相对价值选择股票。选好了之后，无论宏观经济如何波动，我们都安之若素。</span></span><br><span class="line"><span class="code">```</span></span><br></pre></td></tr></table></figure><p>以上，从三体问题到预测天气和股市，这个是无解的。</p><p>参考：<br><a href="https://book.douban.com/subject/2567698/">三体i-地球往事</a><br><a href="https://www.bilibili.com/video/BV1e8411B7w7">投资是怎样赚钱的</a><br><a href="https://zh.wikipedia.org/zh-hans/%E9%80%BB%E8%BE%91%E6%96%AF%E8%B0%9B%E6%98%A0%E5%B0%84">维基百科-Logistic映射</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 投资 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 理财 </tag>
+            
+            <tag> 算法 </tag>
+            
+            <tag> 阅读 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>FIRE-111期-20230910</title>
       <link href="/FIRE-111-20230910/"/>
       <url>/FIRE-111-20230910/</url>
@@ -97,9 +126,9 @@
       
         <tags>
             
-            <tag> 思维 </tag>
-            
             <tag> 算法 </tag>
+            
+            <tag> 思维 </tag>
             
         </tags>
       
@@ -164,7 +193,7 @@
       <link href="/invest-thought-stamp-20230904/"/>
       <url>/invest-thought-stamp-20230904/</url>
       
-        <content type="html"><![CDATA[<p>下面三张图摘自<code>李录</code>的<code>「文明、现代化、价值投资与中国」</code> 。</p><p>我之前看完后有种被开天眼的感觉，也算是从歧途上被拉了回来。</p><p>这基本决定了后续了投资理财的理论和数据支撑的基础。</p><p>对于投资或理财而言，有个问题是避免不了的：</p><blockquote><p>从长期来看，哪些金融资产可以让财富持续、有效、安全可靠的增长？</p></blockquote><img src="https://s2.loli.net/2023/09/04/n1KE82IaqTZoOVs.jpg" alt="10761693832009_.pic.jpg"  /><p>从美国金融资产200多年的历史表现来看，在当时1801年1美金的各类资产经历200年后的价值:</p><blockquote><p>1美金的股票资产，升值了103万倍，零头都大于其他大类资产。<br>而现金已经被贬值了95%</p></blockquote><p>造成的原因：</p><ol><li>通货膨胀</li></ol><p>美国近200年的通货膨胀率以1.4%增长。现金的实际购买率以1.4%降低，经过200年后1块钱的购买力变成了5分钱。</p><ol start="2"><li>GDP经济增长</li></ol><p>美国近200年的通货膨胀率以3%增长，股票的平均市盈率是15倍左右，即利润率6.7%(1&#x2F;15)左右，股票的价格也就6.7%的增长。200年里增长了100万倍。</p><p>回到中国的金融市场，从1991年开始近20年的收益数据表现其实是表现优异的，</p><p>不看数据其实是反直觉的，因为股市里1个赚的8个赔的另外1个保本，给股民的体验是非常差的。</p><p><img src="https://s2.loli.net/2023/09/04/ZDqFGAvlKVoIkwN.jpg" alt="10771693832010_.pic.jpg"></p><p>对比美国从1991年的金融资产表现</p><p><img src="https://s2.loli.net/2023/09/04/b7mOcIq1vapdX3k.jpg" alt="10791693834412_.pic.jpg"></p><p>从两边的的详细数据对比可以看到</p><ul><li><p>对于收益而言，中国的股票平均收益更高，<code>10.1%  vs  7.2%</code></p></li><li><p>股市是有波动周期的，牛熊大致10年左右，整体都是向上的</p></li><li><p>中国的波动更大，熊长牛短，美国波动相对小，慢牛</p></li></ul><p>中美股从宽基指数基金而言，中国的数据收益也略高于美股，都大致在10%左右。</p><p><img src="https://s2.loli.net/2023/09/04/46MI1wiGh2rEn5g.jpg" alt="10781693832011_.pic.jpg"></p><p>以上可以回答开篇的问题</p><blockquote><p>从长期来看，股市中指数基金可以让财富持续、有效、安全可靠的增长</p></blockquote><p>注意这里有几个重要的点：</p><p><code>从长期看</code>：意味着这笔用来投资的钱是需要长期放在股市里的（长期一般5年，最好是能经历一轮股市周期）</p><p><code>指数基金</code>：意味着不是个股，因为从长期看公司最后都是退市破产消亡的，绝大多数的公司的周期也活不过人。而指数基金是不死的，可以扛过周期</p><p>时间是复利的朋友，1美金复利6.7%，经历200年，变成了100万美金。</p><p>但有时候时间也是我们的敌人。几个股市周期过去后，我们都老了。</p><blockquote><p>金钱只是实现目的一种手段，是用来购买有意义的体验，这些体验将构成你的人生。</p><p>—「最优解人生」</p></blockquote><p>在FIRE的路上，不要忘了为什么要出发  :)</p>]]></content>
+        <content type="html"><![CDATA[<p>下面三张图摘自<code>李录</code>的<code>「文明、现代化、价值投资与中国」</code> 。</p><p>我之前看完后有种被开天眼的感觉，也算是从歧途上被拉了回来。</p><p>这基本决定了后续了投资理财的理论和数据支撑的基础。</p><p>对于投资或理财而言，有个问题是避免不了的：</p><blockquote><p>从长期来看，哪些金融资产可以让财富持续、有效、安全可靠的增长？</p></blockquote><img src="https://s2.loli.net/2023/09/04/n1KE82IaqTZoOVs.jpg" alt="10761693832009_.pic.jpg"  /><p>从美国金融资产200多年的历史表现来看，在当时1801年1美金的各类资产经历200年后的价值:</p><blockquote><p>1美金的股票资产，升值了103万倍，零头都大于其他大类资产。<br>而现金已经被贬值了95%</p></blockquote><p>造成的原因：</p><ol><li>通货膨胀</li></ol><p>美国近200年的通货膨胀率以1.4%增长。现金的实际购买率以1.4%降低，经过200年后1块钱的购买力变成了5分钱。</p><ol start="2"><li>GDP经济增长</li></ol><p>美国近200年的通货膨胀率以3%增长，股票的平均市盈率是15倍左右，即利润率6.7%(1&#x2F;15)左右，股票的价格也就6.7%的增长。200年里增长了100万倍。</p><p>回到中国的金融市场，从1991年开始近20年的收益数据表现其实是表现优异的，</p><p>不看数据其实是反直觉的，因为股市里1个赚的7个赔的另外2个保本，给股民的体验是非常差的。</p><p><img src="https://s2.loli.net/2023/09/04/ZDqFGAvlKVoIkwN.jpg" alt="10771693832010_.pic.jpg"></p><p>对比美国从1991年的金融资产表现</p><p><img src="https://s2.loli.net/2023/09/04/b7mOcIq1vapdX3k.jpg" alt="10791693834412_.pic.jpg"></p><p>从两边的的详细数据对比可以看到</p><ul><li><p>对于收益而言，中国的股票平均收益更高，<code>10.1%  vs  7.2%</code></p></li><li><p>股市是有波动周期的，牛熊大致10年左右，整体都是向上的</p></li><li><p>中国的波动更大，熊长牛短，美国波动相对小，慢牛</p></li></ul><p>中美股从宽基指数基金而言，中国的数据收益也略高于美股，都大致在10%左右。</p><p><img src="https://s2.loli.net/2023/09/04/46MI1wiGh2rEn5g.jpg" alt="10781693832011_.pic.jpg"></p><p>以上可以回答开篇的问题</p><blockquote><p>从长期来看，股市中指数基金可以让财富持续、有效、安全可靠的增长</p></blockquote><p>注意这里有几个重要的点：</p><p><code>从长期看</code>：意味着这笔用来投资的钱是需要长期放在股市里的（长期一般5年，最好是能经历一轮股市周期）</p><p><code>指数基金</code>：意味着不是个股，因为从长期看公司最后都是退市破产消亡的，绝大多数的公司的周期也活不过人。而指数基金是不死的，可以扛过周期</p><p>时间是复利的朋友，1美金复利6.7%，经历200年，变成了100万美金。</p><p>但有时候时间也是我们的敌人。几个股市周期过去后，我们都老了。</p><blockquote><p>金钱只是实现目的一种手段，是用来购买有意义的体验，这些体验将构成你的人生。</p><p>—「最优解人生」</p></blockquote><p>在FIRE的路上，不要忘了为什么要出发  :)</p>]]></content>
       
       
       <categories>
@@ -226,9 +255,9 @@
       
         <tags>
             
-            <tag> 哲学 </tag>
-            
             <tag> 心理学 </tag>
+            
+            <tag> 哲学 </tag>
             
         </tags>
       
@@ -565,9 +594,9 @@
       
         <tags>
             
-            <tag> 理财 </tag>
-            
             <tag> FIER </tag>
+            
+            <tag> 理财 </tag>
             
         </tags>
       
