@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>关于WLB</title>
+      <link href="/about-wlb-20230915/"/>
+      <url>/about-wlb-20230915/</url>
+      
+        <content type="html"><![CDATA[<p><code>WLB</code>：work life balance，平衡好工作和生活</p><blockquote><p>工作和生活并不是对立的，和自己喜欢的的人干一些自己想做的事情</p></blockquote><p>Tbd</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 生活 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 心理 </tag>
+            
+            <tag> 哲学 </tag>
+            
+            <tag> 职场 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>我的愿望清单</title>
       <link href="/my-wish-list-20230914/"/>
       <url>/my-wish-list-20230914/</url>
@@ -679,9 +708,9 @@
       
         <tags>
             
-            <tag> 理财 </tag>
-            
             <tag> FIER </tag>
+            
+            <tag> 理财 </tag>
             
         </tags>
       
