@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>退休状态</title>
+      <link href="/about-retire-20231016/"/>
+      <url>/about-retire-20231016/</url>
+      
+        <content type="html"><![CDATA[<p>不再为了想象中的明天而牺牲今天。</p><p>当你能活在当下，内心充盈地度过每一天，</p><p>你就达到了<code>退休</code>的状态。</p><p>—摘自纳瓦尔宝典</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 生活 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> FIRE </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>FIRE-116期-20231015</title>
       <link href="/FIRE-116-20231015/"/>
       <url>/FIRE-116-20231015/</url>
@@ -910,9 +935,9 @@
             
             <tag> 算法 </tag>
             
-            <tag> 阅读 </tag>
-            
             <tag> 理财 </tag>
+            
+            <tag> 阅读 </tag>
             
         </tags>
       
