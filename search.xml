@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>小步子原理</title>
+      <link href="/litter-step-principle-20231101/"/>
+      <url>/litter-step-principle-20231101/</url>
+      
+        <content type="html"><![CDATA[<p><code>小步子原理</code>是心理学家<code>斯金纳</code>在教学过程中提出的一个概念，</p><p>程序教学所呈示的教材是被分解成一步一步的，</p><p>前一步的学习为后一步的学习作铺垫，</p><p>后一步学习在前一步学习后进行。</p><p>由于两个步子之间的难度相差很小，</p><p>所以学习者的学习很容易得到成功，并建立起自信心</p><p><code>小步子原理</code>的核心思想是：</p><p>把一个大的目标分解成一个个小的目标，</p><p>每次只专注于完成一个小目标，</p><p>这样就不会感到压力，也不会感到无力。</p><p>然后完成一个小目标，</p><p>在改变的路上先迈出一小步，</p><p>获取一点小成绩。</p><p>就给自己一个正向反馈，然后持续得迭代下去。</p><p>比如：<br>用小本子记东西，一页，一本很快就能记满，成就感。</p><p>参考：<br><a href="https://wiki.mbalib.com/wiki/%E6%96%AF%E9%87%91%E7%BA%B3%E7%9A%84%E7%A8%8B%E5%BA%8F%E6%95%99%E5%AD%A6%E6%B3%95">斯金纳的程序教学法</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 生活 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 心理学 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>贝叶斯思维</title>
       <link href="/bayes-mind-20231031/"/>
       <url>/bayes-mind-20231031/</url>
@@ -1382,9 +1407,9 @@
       
         <tags>
             
-            <tag> FIRE </tag>
-            
             <tag> 理财 </tag>
+            
+            <tag> FIRE </tag>
             
         </tags>
       
