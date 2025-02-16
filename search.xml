@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>FIRE-183期-20250216</title>
+      <link href="/FIRE-183-20250216/"/>
+      <url>/FIRE-183-20250216/</url>
+      
+        <content type="html"><![CDATA[<p><img src="https://s2.loli.net/2025/02/16/Aov4JgYbeOM2LFm.jpg" alt="b25a483a008d499793472e5fa7899c8e.jpg"> </p><h2 id="本周数据"><a href="#本周数据" class="headerlink" title="本周数据"></a>本周数据</h2><h3 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h3><table><thead><tr><th>投入</th><th>-20170</th></tr></thead><tbody><tr><td>收益率</td><td>本周：<font color="red" size=4>  3.61% </font> &#x2F; <code>沪深300：1.19%</code>    <br />本年：<font color="red" size=4> 3.92% </font>&#x2F; <code>沪深300:0.33%</code></td></tr><tr><td>账本</td><td><img src="https://s2.loli.net/2025/02/16/f6OgBkwq24SZPc1.jpg" style="zoom:33%;" /></td></tr><tr><td>消费</td><td>979</td></tr></tbody></table><h3 id="交易"><a href="#交易" class="headerlink" title="交易"></a>交易</h3><ul><li>支付宝基金账户转出 20170，减些仓位到余额宝</li></ul><h2 id="感想"><a href="#感想" class="headerlink" title="感想"></a>感想</h2><p> DeepSeek 降本的关键点</p><ol><li><p>MoE （mixture of experts）混合专家模型，显著降低训练和推理的计算成本</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> 模型预设一组专家，在训练或推理时，只需要激活一部分参数，会自动学习针对不同任务路由到哪个专家.</span><br><span class="line"></span><br><span class="line"> DeepSeek 的模型拥有超过 6000 亿个参数，相⽐之下，Llama 405B 有 4050 亿参数，</span><br><span class="line">Llama 70B 有 700 亿参数。从参数规模上看，DeepSeek 模型拥有更⼤的信息压缩空间，可以</span><br><span class="line">容纳更多来⾃互联⽹的世界知识。但与此同时，模型每次只激活约 370 亿个参数。也就是说，在</span><br><span class="line">训练或推理过程中，只需要计算 370 亿个参数。相⽐之下，Llama 模型每次推理都需要激活</span><br><span class="line">700 亿或 4050 亿个参数。因此，采⽤混合专家架构可以显著降低训练和推理的计算成本。</span><br><span class="line"></span><br></pre></td></tr></table></figure></li><li><p>MLA（Multi-Modal Learning Architecture）多模态学习架构，大幅度降低内存压力</p></li></ol><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">⽤于减少推理过程中的内存占⽤，在 CUDA 层甚至更底层做编码。</span><br><span class="line"></span><br><span class="line">通过 CUDA 内核级优化实现动态路由加速，相较于常规框架级实现获得 23% 的吞吐量提升，</span><br><span class="line">整体占用比传统架构降低 67%-90%</span><br><span class="line"></span><br></pre></td></tr></table></figure><h2 id="好内容"><a href="#好内容" class="headerlink" title="好内容"></a>好内容</h2><ol><li><p><a href="https://www.xiaoyuzhoufm.com/episode/67ac24df5e6f58876dd4362f">DeepSeek 小传</a><br><a href="https://mp.weixin.qq.com/s/prmwOtDmhHZrsC0xxE_vRQ">DeepSeek 小传：制造了 AI 拐点的科技苦旅</a></p></li><li><p><a href="https://www.xiaoyuzhoufm.com/episode/67ac07ed2faa72d7a8fc2bb2">再议县城：什么是「县感」、城迁群像与转移支付体系</a></p></li><li><p><a href="https://www.xiaoyuzhoufm.com/episode/67adba76606e5c59403c7a53">从现在起，努力为自己打造一条永续现金流</a></p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 投资 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> FIRE </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>FIRE-182期-20250209</title>
       <link href="/FIRE-182-20250209/"/>
       <url>/FIRE-182-20250209/</url>
@@ -1791,9 +1816,9 @@
       
         <tags>
             
-            <tag> 阅读 </tag>
-            
             <tag> 音乐 </tag>
+            
+            <tag> 阅读 </tag>
             
             <tag> 吉他 </tag>
             
@@ -1974,9 +1999,9 @@
       
         <tags>
             
-            <tag> 阅读 </tag>
-            
             <tag> 音乐 </tag>
+            
+            <tag> 阅读 </tag>
             
         </tags>
       
@@ -2644,9 +2669,9 @@
       
         <tags>
             
-            <tag> 随笔 </tag>
-            
             <tag> 阅读 </tag>
+            
+            <tag> 随笔 </tag>
             
         </tags>
       
@@ -3062,9 +3087,9 @@
             
             <tag> 育儿 </tag>
             
-            <tag> 投资 </tag>
-            
             <tag> 教育 </tag>
+            
+            <tag> 投资 </tag>
             
         </tags>
       
@@ -3299,9 +3324,9 @@
       
         <tags>
             
-            <tag> 随笔 </tag>
-            
             <tag> 休闲 </tag>
+            
+            <tag> 随笔 </tag>
             
         </tags>
       
@@ -5152,9 +5177,9 @@
       
         <tags>
             
-            <tag> FIER </tag>
-            
             <tag> 理财 </tag>
+            
+            <tag> FIER </tag>
             
         </tags>
       
