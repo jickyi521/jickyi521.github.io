@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>网球能力雷达图</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #18212f;
+      --muted: #657184;
+      --line: #d8dee8;
+      --panel: #ffffff;
+      --page: #f5f7fb;
+      --accent: #1f8f6f;
+      --accent-strong: #126f56;
+      --clay: #d76245;
+      --court: #255f94;
+      --sun: #f0b84d;
+      --shadow: 0 16px 42px rgba(33, 45, 67, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      color: var(--ink);
+      background:
+        linear-gradient(140deg, rgba(31, 143, 111, 0.12), transparent 34%),
+        linear-gradient(315deg, rgba(215, 98, 69, 0.12), transparent 30%),
+        var(--page);
+    }
+
+    .app {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 32px 0;
+    }
+
+    header {
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(28px, 5vw, 48px);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: minmax(330px, 440px) 1fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .controls,
+    .chart-area {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.88);
+      box-shadow: var(--shadow);
+    }
+
+    .controls {
+      padding: 18px;
+    }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    button {
+      min-height: 38px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      padding: 0 14px;
+      font: inherit;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      cursor: pointer;
+      transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+    }
+
+    button:hover {
+      background: var(--accent-strong);
+      transform: translateY(-1px);
+    }
+
+    button.secondary {
+      color: var(--ink);
+      border-color: var(--line);
+      background: #fff;
+    }
+
+    button.secondary:hover {
+      border-color: var(--court);
+      background: #eef5fb;
+    }
+
+    .factor-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .factor {
+      display: grid;
+      grid-template-columns: 150px 1fr 72px;
+      gap: 12px;
+      align-items: center;
+      min-height: 54px;
+      padding: 12px;
+      border: 1px solid #e3e8f0;
+      border-radius: 8px;
+      background: var(--panel);
+    }
+
+    .factor label {
+      font-weight: 750;
+      line-height: 1.2;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      accent-color: var(--accent);
+    }
+
+    input[type="number"] {
+      width: 72px;
+      height: 34px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 0 8px;
+      font: inherit;
+      font-weight: 750;
+      text-align: center;
+      color: var(--ink);
+      background: #fbfcfe;
+    }
+
+    input[type="number"]:focus {
+      outline: 3px solid rgba(31, 143, 111, 0.18);
+      border-color: var(--accent);
+    }
+
+    .chart-area {
+      min-height: 640px;
+      padding: 20px;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: 16px;
+    }
+
+    .chart-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .chart-title {
+      margin: 0;
+      font-size: 22px;
+    }
+
+    .canvas-wrap {
+      width: 100%;
+      min-height: 420px;
+      position: relative;
+    }
+
+    canvas {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 420px;
+    }
+
+    @media (max-width: 880px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+
+      .chart-area {
+        min-height: auto;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .app {
+        width: min(100% - 20px, 1180px);
+        padding: 18px 0;
+      }
+
+      .controls,
+      .chart-area {
+        padding: 12px;
+      }
+
+      .factor {
+        grid-template-columns: 112px 1fr 62px;
+        gap: 8px;
+        padding: 10px;
+      }
+
+      input[type="number"] {
+        width: 62px;
+      }
+
+      .chart-head {
+        grid-template-columns: 1fr;
+        display: grid;
+      }
+
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header>
+      <div>
+        <h1>网球能力雷达图</h1>
+        <p class="subtitle">九项关键能力评分，实时生成整体画像。</p>
+      </div>
+    </header>
+
+    <main>
+      <section class="controls" aria-label="能力评分输入">
+        <div class="toolbar">
+          <button id="generateButton" type="button">生成雷达图</button>
+          <button class="secondary" id="resetButton" type="button">重置</button>
+          <button class="secondary" id="downloadButton" type="button">下载图片</button>
+        </div>
+        <div class="factor-list" id="factorList"></div>
+      </section>
+
+      <section class="chart-area" aria-label="能力雷达图">
+        <div class="chart-head">
+          <h2 class="chart-title">能力分布</h2>
+        </div>
+        <div class="canvas-wrap">
+          <canvas id="radarCanvas" aria-label="网球能力雷达图"></canvas>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const factors = [
+      { zh: "发球", en: "Serve" },
+      { zh: "接发", en: "Return" },
+      { zh: "正手", en: "Forehand" },
+      { zh: "反手", en: "Backhand" },
+      { zh: "截击", en: "Volley" },
+      { zh: "移动", en: "Footwork" },
+      { zh: "体能", en: "Fitness" },
+      { zh: "战术意识", en: "Tactical Awareness" },
+      { zh: "心理", en: "Mental Toughness" }
+    ];
+
+    const initialScores = Array(factors.length).fill(3.0);
+    const maxScore = 5;
+    const factorList = document.querySelector("#factorList");
+    const canvas = document.querySelector("#radarCanvas");
+    const ctx = canvas.getContext("2d");
+
+    function clampScore(value) {
+      const numericValue = Number(value);
+      if (Number.isNaN(numericValue)) return 0;
+      return Math.min(maxScore, Math.max(0, numericValue));
+    }
+
+    function formatScore(value) {
+      return clampScore(value).toFixed(1);
+    }
+
+    function createInputs() {
+      factorList.innerHTML = "";
+
+      factors.forEach((factor, index) => {
+        const row = document.createElement("div");
+        row.className = "factor";
+
+        const label = document.createElement("label");
+        label.setAttribute("for", `score-${index}`);
+        label.textContent = `${factor.zh} / ${factor.en}`;
+
+        const range = document.createElement("input");
+        range.type = "range";
+        range.id = `score-${index}`;
+        range.min = "0";
+        range.max = String(maxScore);
+        range.step = "0.1";
+        range.value = formatScore(initialScores[index]);
+        range.dataset.index = String(index);
+
+        const number = document.createElement("input");
+        number.type = "number";
+        number.min = "0";
+        number.max = String(maxScore);
+        number.step = "0.1";
+        number.inputMode = "decimal";
+        number.setAttribute("inputmode", "decimal");
+        number.value = formatScore(initialScores[index]);
+        number.setAttribute("aria-label", `${factor.zh}评分`);
+        number.dataset.index = String(index);
+
+        range.addEventListener("input", () => {
+          number.value = formatScore(range.value);
+          updateChart();
+        });
+
+        number.addEventListener("input", () => {
+          if (number.value === "") return;
+          const score = clampScore(number.value);
+          range.value = String(score);
+          updateChart();
+        });
+
+        number.addEventListener("blur", () => {
+          number.value = formatScore(number.value);
+          range.value = number.value;
+          updateChart();
+        });
+
+        row.append(label, range, number);
+        factorList.append(row);
+      });
+    }
+
+    function getScores() {
+      return [...factorList.querySelectorAll('input[type="number"]')].map((input) => clampScore(input.value));
+    }
+
+    function normalizeInputs() {
+      factorList.querySelectorAll(".factor").forEach((row) => {
+        const range = row.querySelector('input[type="range"]');
+        const number = row.querySelector('input[type="number"]');
+        number.value = formatScore(number.value);
+        range.value = number.value;
+      });
+    }
+
+    function resizeCanvas() {
+      const rect = canvas.getBoundingClientRect();
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = Math.max(1, Math.floor(rect.width * dpr));
+      canvas.height = Math.max(1, Math.floor(rect.height * dpr));
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      return rect;
+    }
+
+    function polarPoint(centerX, centerY, radius, index, total) {
+      const angle = (Math.PI * 2 * index / total) - Math.PI / 2;
+      return {
+        x: centerX + Math.cos(angle) * radius,
+        y: centerY + Math.sin(angle) * radius
+      };
+    }
+
+    function drawPolygon(points, options) {
+      ctx.beginPath();
+      points.forEach((point, index) => {
+        if (index === 0) ctx.moveTo(point.x, point.y);
+        else ctx.lineTo(point.x, point.y);
+      });
+      ctx.closePath();
+
+      if (options.fill) {
+        ctx.fillStyle = options.fill;
+        ctx.fill();
+      }
+
+      if (options.stroke) {
+        ctx.strokeStyle = options.stroke;
+        ctx.lineWidth = options.lineWidth || 1;
+        ctx.stroke();
+      }
+    }
+
+    function drawRadar(scores) {
+      const rect = resizeCanvas();
+      const width = rect.width;
+      const height = rect.height;
+      const centerX = width / 2;
+      const centerY = height / 2 + 8;
+      const radius = Math.max(110, Math.min(width, height) * 0.34);
+      const labelRadius = radius + 34;
+      const total = factors.length;
+
+      ctx.clearRect(0, 0, width, height);
+      ctx.lineCap = "round";
+      ctx.lineJoin = "round";
+      ctx.font = "13px -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif";
+      ctx.textBaseline = "middle";
+      const average = scores.reduce((sum, value) => sum + value, 0) / scores.length;
+
+      ctx.textAlign = "right";
+      ctx.fillStyle = "#657184";
+      ctx.font = "13px -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif";
+      ctx.fillText("平均值", width - 22, 28);
+      ctx.fillStyle = "#126f56";
+      ctx.font = "800 34px -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif";
+      ctx.fillText(average.toFixed(1), width - 22, 62);
+
+      for (let level = 1; level <= maxScore; level += 1) {
+        const levelRadius = radius * level / maxScore;
+        const points = factors.map((_, index) => polarPoint(centerX, centerY, levelRadius, index, total));
+        drawPolygon(points, {
+          stroke: level % 5 === 0 ? "#b6c0ce" : "#dfe5ee",
+          lineWidth: level % 5 === 0 ? 1.2 : 0.8
+        });
+      }
+
+      factors.forEach((factor, index) => {
+        const axisEnd = polarPoint(centerX, centerY, radius, index, total);
+        ctx.beginPath();
+        ctx.moveTo(centerX, centerY);
+        ctx.lineTo(axisEnd.x, axisEnd.y);
+        ctx.strokeStyle = "#d4dce7";
+        ctx.lineWidth = 1;
+        ctx.stroke();
+
+        const labelPoint = polarPoint(centerX, centerY, labelRadius, index, total);
+        const score = formatScore(scores[index]);
+        ctx.fillStyle = "#18212f";
+        ctx.font = "700 13px -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif";
+        ctx.textAlign = Math.abs(labelPoint.x - centerX) < 12 ? "center" : labelPoint.x > centerX ? "left" : "right";
+        ctx.fillText(`${factor.zh} /`, labelPoint.x, labelPoint.y - 17);
+        ctx.font = "12px -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif";
+        ctx.fillText(factor.en, labelPoint.x, labelPoint.y);
+        ctx.fillStyle = "#657184";
+        ctx.font = "12px -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif";
+        ctx.fillText(score, labelPoint.x, labelPoint.y + 17);
+      });
+
+      const averagePoints = factors.map((_, index) => polarPoint(centerX, centerY, radius * average / maxScore, index, total));
+      drawPolygon(averagePoints, {
+        stroke: "#f0b84d",
+        lineWidth: 2
+      });
+
+      const scorePoints = scores.map((score, index) => polarPoint(centerX, centerY, radius * score / maxScore, index, total));
+      drawPolygon(scorePoints, {
+        fill: "rgba(31, 143, 111, 0.24)",
+        stroke: "#1f8f6f",
+        lineWidth: 3
+      });
+
+      const peak = Math.max(...scores);
+      scorePoints.forEach((point, index) => {
+        const isPeak = scores[index] === peak;
+        ctx.beginPath();
+        ctx.arc(point.x, point.y, isPeak ? 5 : 4, 0, Math.PI * 2);
+        ctx.fillStyle = isPeak ? "#d76245" : "#1f8f6f";
+        ctx.fill();
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = "#fff";
+        ctx.stroke();
+      });
+    }
+
+    function updateSummary(scores) {
+      const average = scores.reduce((sum, score) => sum + score, 0) / scores.length;
+      canvas.setAttribute("aria-label", `网球能力雷达图，平均值 ${average.toFixed(1)}`);
+    }
+
+    function updateChart() {
+      const scores = getScores();
+      updateSummary(scores);
+      drawRadar(scores);
+    }
+
+    document.querySelector("#generateButton").addEventListener("click", () => {
+      normalizeInputs();
+      updateChart();
+    });
+
+    document.querySelector("#resetButton").addEventListener("click", () => {
+      factorList.querySelectorAll(".factor").forEach((row, index) => {
+        const range = row.querySelector('input[type="range"]');
+        const number = row.querySelector('input[type="number"]');
+        range.value = formatScore(initialScores[index]);
+        number.value = formatScore(initialScores[index]);
+      });
+      updateChart();
+    });
+
+    document.querySelector("#downloadButton").addEventListener("click", () => {
+      normalizeInputs();
+      updateChart();
+      const link = document.createElement("a");
+      link.download = "tennis-radar-chart.png";
+      link.href = canvas.toDataURL("image/png");
+      link.click();
+    });
+
+    window.addEventListener("resize", updateChart);
+
+    createInputs();
+    updateChart();
+  </script>
+</body>
+</html>
