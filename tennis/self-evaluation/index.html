@@ -212,6 +212,14 @@
         padding: 12px;
       }
 
+      .canvas-wrap {
+        min-height: 360px;
+      }
+
+      canvas {
+        min-height: 360px;
+      }
+
       .factor {
         grid-template-columns: 112px 1fr 62px;
         gap: 8px;
@@ -269,8 +277,8 @@
       { zh: "截击", en: "Volley" },
       { zh: "移动", en: "Footwork" },
       { zh: "体能", en: "Fitness" },
-      { zh: "战术意识", en: "Tactical Awareness" },
-      { zh: "心理", en: "Mental Toughness" }
+      { zh: "战术", en: "Tactical" },
+      { zh: "心理", en: "Mental" }
     ];
 
     const initialScores = Array(factors.length).fill(3.0);
@@ -397,10 +405,12 @@
       const rect = resizeCanvas();
       const width = rect.width;
       const height = rect.height;
+      const isMobile = width < 500;
       const centerX = width / 2;
-      const centerY = height / 2 + 8;
-      const radius = Math.max(110, Math.min(width, height) * 0.34);
-      const labelRadius = radius + 34;
+      const centerY = height / 2;
+      const scaleFactor = isMobile ? 0.30 : 0.36;
+      const radius = Math.max(isMobile ? 90 : 110, Math.min(width, height) * scaleFactor);
+      const labelRadius = radius + (isMobile ? 22 : 34);
       const total = factors.length;
 
       ctx.clearRect(0, 0, width, height);
@@ -409,14 +419,6 @@
       ctx.font = "13px -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif";
       ctx.textBaseline = "middle";
       const average = scores.reduce((sum, value) => sum + value, 0) / scores.length;
-
-      ctx.textAlign = "right";
-      ctx.fillStyle = "#657184";
-      ctx.font = "13px -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif";
-      ctx.fillText("平均值", width - 22, 28);
-      ctx.fillStyle = "#126f56";
-      ctx.font = "800 34px -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif";
-      ctx.fillText(average.toFixed(1), width - 22, 62);
 
       for (let level = 1; level <= maxScore; level += 1) {
         const levelRadius = radius * level / maxScore;
@@ -473,6 +475,12 @@
         ctx.strokeStyle = "#fff";
         ctx.stroke();
       });
+
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillStyle = "#126f56";
+      ctx.font = `800 ${isMobile ? 24 : 32}px -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif`;
+      ctx.fillText(average.toFixed(1), centerX, centerY);
     }
 
     function updateSummary(scores) {
